@@ -1,0 +1,14 @@
+C:\Users\ASUS\source\repos\ADONET\CapaDatos\bin\Debug\CapaDatos.dll.config
+C:\Users\ASUS\source\repos\ADONET\CapaDatos\bin\Debug\CapaDatos.dll
+C:\Users\ASUS\source\repos\ADONET\CapaDatos\bin\Debug\CapaDatos.pdb
+C:\Users\ASUS\source\repos\ADONET\CapaDatos\obj\Debug\CapaDatos.csprojAssemblyReference.cache
+C:\Users\ASUS\source\repos\ADONET\CapaDatos\obj\Debug\CapaDatos.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\source\repos\ADONET\CapaDatos\obj\Debug\CapaDatos.dll
+C:\Users\ASUS\source\repos\ADONET\CapaDatos\obj\Debug\CapaDatos.pdb
+C:\Users\ASUS\Desktop\PROYECTO INTEGRADOR\CapaDatos\bin\Debug\CapaDatos.dll.config
+C:\Users\ASUS\Desktop\PROYECTO INTEGRADOR\CapaDatos\bin\Debug\CapaDatos.dll
+C:\Users\ASUS\Desktop\PROYECTO INTEGRADOR\CapaDatos\bin\Debug\CapaDatos.pdb
+C:\Users\ASUS\Desktop\PROYECTO INTEGRADOR\CapaDatos\obj\Debug\CapaDatos.csprojAssemblyReference.cache
+C:\Users\ASUS\Desktop\PROYECTO INTEGRADOR\CapaDatos\obj\Debug\CapaDatos.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\Desktop\PROYECTO INTEGRADOR\CapaDatos\obj\Debug\CapaDatos.dll
+C:\Users\ASUS\Desktop\PROYECTO INTEGRADOR\CapaDatos\obj\Debug\CapaDatos.pdb

@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="EcuPlaticos" Class="DBADODataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-982IP0Q\SQLEXPRESS;Initial Catalog=EcuPlaticos;Integrated Security=True" SettingsObjectName="CapaDatos.Properties.Settings" SettingsPropertyName="EcuPlaticosConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Tbl_Cliente" Member="Tbl_Cliente">
+    <Type Name="Tbl_Cliente">
+      <Column Name="Cli_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Cli_Per_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Cli_Cargo" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Cli_Estado" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Association Name="Tbl_Persona_Tbl_Cliente" Member="Tbl_Persona" ThisKey="Cli_Per_Id" OtherKey="Per_Id" Type="Tbl_Persona" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tbl_Persona" Member="Tbl_Persona">
+    <Type Name="Tbl_Persona">
+      <Column Name="Per_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Per_Nombre" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Per_Apellido_Materno" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="Per_Apellido_Paterno" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="Per_Cedula" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Per_Direccion" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="Per_Telefono" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Per_Estado" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Association Name="Tbl_Persona_Tbl_Cliente" Member="Tbl_Cliente" ThisKey="Per_Id" OtherKey="Cli_Per_Id" Type="Tbl_Cliente" />
+      <Association Name="Tbl_Persona_Tbl_Usuario" Member="Tbl_Usuario" ThisKey="Per_Id" OtherKey="Usu_Per_Id" Type="Tbl_Usuario" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tbl_Usuario" Member="Tbl_Usuario">
+    <Type Name="Tbl_Usuario">
+      <Column Name="Usu_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Usu_Nombre" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Usu_Contrasenia" Type="System.String" DbType="VarChar(32) NOT NULL" CanBeNull="false" />
+      <Column Name="Usu_Per_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Usu_Rol_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Usu_Estado" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Association Name="Tbl_Persona_Tbl_Usuario" Member="Tbl_Persona" ThisKey="Usu_Per_Id" OtherKey="Per_Id" Type="Tbl_Persona" IsForeignKey="true" />
+      <Association Name="Tbl_Rol_Tbl_Usuario" Member="Tbl_Rol" ThisKey="Usu_Rol_Id" OtherKey="Rol_Id" Type="Tbl_Rol" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tbl_Producto" Member="Tbl_Producto">
+    <Type Name="Tbl_Producto">
+      <Column Name="Pro_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Pro_Nombre" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Pro_Orp_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Pro_Estado" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Association Name="Tbl_Orden_Produccion_Tbl_Producto" Member="Tbl_Orden_Produccion" ThisKey="Pro_Orp_Id" OtherKey="Orp_Id" Type="Tbl_Orden_Produccion" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tbl_Orden_Produccion" Member="Tbl_Orden_Produccion">
+    <Type Name="Tbl_Orden_Produccion">
+      <Column Name="Orp_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Orp_Num_Orden" Type="System.String" DbType="VarChar(8)" CanBeNull="true" />
+      <Column Name="Orp_Fecha_Pedido" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Orp_Fecha_Entrega" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Orp_Maq_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Orp_Ancho_Burbuja" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="Orp_Calibre" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Orp_Color" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Orp_Descripcion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Orp_Tratados" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Orp_Taca" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Orp_Refilar" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Orp_Total_kg" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Orp_Orc_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Orp_Estado" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Association Name="Tbl_Orden_Produccion_Tbl_Producto" Member="Tbl_Producto" ThisKey="Orp_Id" OtherKey="Pro_Orp_Id" Type="Tbl_Producto" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tbl_Rol" Member="Tbl_Rol">
+    <Type Name="Tbl_Rol">
+      <Column Name="Rol_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Rol_Nombre" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="Rol_Descripcion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Rol_Estado" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Association Name="Tbl_Rol_Tbl_Usuario" Member="Tbl_Usuario" ThisKey="Rol_Id" OtherKey="Usu_Rol_Id" Type="Tbl_Usuario" />
+    </Type>
+  </Table>
+</Database>

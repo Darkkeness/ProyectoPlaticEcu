@@ -1,0 +1,122 @@
+C:\Users\ASUS\source\repos\ADONET\CapaPresentacion\bin\CapaPresentacion.dll.config
+C:\Users\ASUS\source\repos\ADONET\CapaPresentacion\bin\CapaPresentacion.dll
+C:\Users\ASUS\source\repos\ADONET\CapaPresentacion\bin\CapaPresentacion.pdb
+C:\Users\ASUS\source\repos\ADONET\CapaPresentacion\bin\roslyn\csc.exe
+C:\Users\ASUS\source\repos\ADONET\CapaPresentacion\bin\roslyn\csc.exe.config
+C:\Users\ASUS\source\repos\ADONET\CapaPresentacion\bin\roslyn\csc.rsp
+C:\Users\ASUS\source\repos\ADONET\CapaPresentacion\bin\roslyn\csi.exe
+C:\Users\ASUS\source\repos\ADONET\CapaPresentacion\bin\roslyn\csi.exe.config
+C:\Users\ASUS\source\repos\ADONET\CapaPresentacion\bin\roslyn\csi.rsp
+C:\Users\ASUS\source\repos\ADONET\CapaPresentacion\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\ASUS\source\repos\ADONET\CapaPresentacion\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\ASUS\source\repos\ADONET\CapaPresentacion\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\ASUS\source\repos\ADONET\CapaPresentacion\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\ASUS\source\repos\ADONET\CapaPresentacion\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\ASUS\source\repos\ADONET\CapaPresentacion\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\ASUS\source\repos\ADONET\CapaPresentacion\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\ASUS\source\repos\ADONET\CapaPresentacion\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\ASUS\source\repos\ADONET\CapaPresentacion\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\ASUS\source\repos\ADONET\CapaPresentacion\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\ASUS\source\repos\ADONET\CapaPresentacion\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\ASUS\source\repos\ADONET\CapaPresentacion\bin\roslyn\System.AppContext.dll
+C:\Users\ASUS\source\repos\ADONET\CapaPresentacion\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\ASUS\source\repos\ADONET\CapaPresentacion\bin\roslyn\System.Console.dll
+C:\Users\ASUS\source\repos\ADONET\CapaPresentacion\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\ASUS\source\repos\ADONET\CapaPresentacion\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\ASUS\source\repos\ADONET\CapaPresentacion\bin\roslyn\System.IO.Compression.dll
+C:\Users\ASUS\source\repos\ADONET\CapaPresentacion\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\ASUS\source\repos\ADONET\CapaPresentacion\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\ASUS\source\repos\ADONET\CapaPresentacion\bin\roslyn\System.IO.Pipes.AccessControl.dll
+C:\Users\ASUS\source\repos\ADONET\CapaPresentacion\bin\roslyn\System.IO.Pipes.dll
+C:\Users\ASUS\source\repos\ADONET\CapaPresentacion\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\ASUS\source\repos\ADONET\CapaPresentacion\bin\roslyn\System.Security.AccessControl.dll
+C:\Users\ASUS\source\repos\ADONET\CapaPresentacion\bin\roslyn\System.Security.Claims.dll
+C:\Users\ASUS\source\repos\ADONET\CapaPresentacion\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\ASUS\source\repos\ADONET\CapaPresentacion\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\ASUS\source\repos\ADONET\CapaPresentacion\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\ASUS\source\repos\ADONET\CapaPresentacion\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\ASUS\source\repos\ADONET\CapaPresentacion\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Users\ASUS\source\repos\ADONET\CapaPresentacion\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\ASUS\source\repos\ADONET\CapaPresentacion\bin\roslyn\System.ValueTuple.dll
+C:\Users\ASUS\source\repos\ADONET\CapaPresentacion\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\ASUS\source\repos\ADONET\CapaPresentacion\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\ASUS\source\repos\ADONET\CapaPresentacion\bin\roslyn\System.Xml.XPath.dll
+C:\Users\ASUS\source\repos\ADONET\CapaPresentacion\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\ASUS\source\repos\ADONET\CapaPresentacion\bin\roslyn\vbc.exe
+C:\Users\ASUS\source\repos\ADONET\CapaPresentacion\bin\roslyn\vbc.exe.config
+C:\Users\ASUS\source\repos\ADONET\CapaPresentacion\bin\roslyn\vbc.rsp
+C:\Users\ASUS\source\repos\ADONET\CapaPresentacion\bin\roslyn\VBCSCompiler.exe
+C:\Users\ASUS\source\repos\ADONET\CapaPresentacion\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\ASUS\source\repos\ADONET\CapaPresentacion\bin\CapaDatos.dll
+C:\Users\ASUS\source\repos\ADONET\CapaPresentacion\bin\CapaNegocio.dll
+C:\Users\ASUS\source\repos\ADONET\CapaPresentacion\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\ASUS\source\repos\ADONET\CapaPresentacion\bin\CapaDatos.pdb
+C:\Users\ASUS\source\repos\ADONET\CapaPresentacion\bin\CapaDatos.dll.config
+C:\Users\ASUS\source\repos\ADONET\CapaPresentacion\bin\CapaNegocio.pdb
+C:\Users\ASUS\source\repos\ADONET\CapaPresentacion\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\ASUS\source\repos\ADONET\CapaPresentacion\obj\Debug\CapaPresentacion.csprojAssemblyReference.cache
+C:\Users\ASUS\source\repos\ADONET\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\source\repos\ADONET\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.CopyComplete
+C:\Users\ASUS\source\repos\ADONET\CapaPresentacion\obj\Debug\CapaPresentacion.dll
+C:\Users\ASUS\source\repos\ADONET\CapaPresentacion\obj\Debug\CapaPresentacion.pdb
+C:\Users\ASUS\Desktop\PROYECTO INTEGRADOR\CapaPresentacion\obj\Debug\CapaPresentacion.csprojAssemblyReference.cache
+C:\Users\ASUS\Desktop\PROYECTO INTEGRADOR\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\Desktop\PROYECTO INTEGRADOR\CapaPresentacion\obj\Debug\CapaPresentacion.dll
+C:\Users\ASUS\Desktop\PROYECTO INTEGRADOR\CapaPresentacion\obj\Debug\CapaPresentacion.pdb
+C:\Users\ASUS\Desktop\PROYECTO INTEGRADOR\CapaPresentacion\bin\CapaPresentacion.dll.config
+C:\Users\ASUS\Desktop\PROYECTO INTEGRADOR\CapaPresentacion\bin\CapaPresentacion.dll
+C:\Users\ASUS\Desktop\PROYECTO INTEGRADOR\CapaPresentacion\bin\CapaPresentacion.pdb
+C:\Users\ASUS\Desktop\PROYECTO INTEGRADOR\CapaPresentacion\bin\roslyn\csc.exe
+C:\Users\ASUS\Desktop\PROYECTO INTEGRADOR\CapaPresentacion\bin\roslyn\csc.exe.config
+C:\Users\ASUS\Desktop\PROYECTO INTEGRADOR\CapaPresentacion\bin\roslyn\csc.rsp
+C:\Users\ASUS\Desktop\PROYECTO INTEGRADOR\CapaPresentacion\bin\roslyn\csi.exe
+C:\Users\ASUS\Desktop\PROYECTO INTEGRADOR\CapaPresentacion\bin\roslyn\csi.exe.config
+C:\Users\ASUS\Desktop\PROYECTO INTEGRADOR\CapaPresentacion\bin\roslyn\csi.rsp
+C:\Users\ASUS\Desktop\PROYECTO INTEGRADOR\CapaPresentacion\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\ASUS\Desktop\PROYECTO INTEGRADOR\CapaPresentacion\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\ASUS\Desktop\PROYECTO INTEGRADOR\CapaPresentacion\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\ASUS\Desktop\PROYECTO INTEGRADOR\CapaPresentacion\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\ASUS\Desktop\PROYECTO INTEGRADOR\CapaPresentacion\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\ASUS\Desktop\PROYECTO INTEGRADOR\CapaPresentacion\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\ASUS\Desktop\PROYECTO INTEGRADOR\CapaPresentacion\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\ASUS\Desktop\PROYECTO INTEGRADOR\CapaPresentacion\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\ASUS\Desktop\PROYECTO INTEGRADOR\CapaPresentacion\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\ASUS\Desktop\PROYECTO INTEGRADOR\CapaPresentacion\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\ASUS\Desktop\PROYECTO INTEGRADOR\CapaPresentacion\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\ASUS\Desktop\PROYECTO INTEGRADOR\CapaPresentacion\bin\roslyn\System.AppContext.dll
+C:\Users\ASUS\Desktop\PROYECTO INTEGRADOR\CapaPresentacion\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\ASUS\Desktop\PROYECTO INTEGRADOR\CapaPresentacion\bin\roslyn\System.Console.dll
+C:\Users\ASUS\Desktop\PROYECTO INTEGRADOR\CapaPresentacion\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\ASUS\Desktop\PROYECTO INTEGRADOR\CapaPresentacion\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\ASUS\Desktop\PROYECTO INTEGRADOR\CapaPresentacion\bin\roslyn\System.IO.Compression.dll
+C:\Users\ASUS\Desktop\PROYECTO INTEGRADOR\CapaPresentacion\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\ASUS\Desktop\PROYECTO INTEGRADOR\CapaPresentacion\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\ASUS\Desktop\PROYECTO INTEGRADOR\CapaPresentacion\bin\roslyn\System.IO.Pipes.AccessControl.dll
+C:\Users\ASUS\Desktop\PROYECTO INTEGRADOR\CapaPresentacion\bin\roslyn\System.IO.Pipes.dll
+C:\Users\ASUS\Desktop\PROYECTO INTEGRADOR\CapaPresentacion\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\ASUS\Desktop\PROYECTO INTEGRADOR\CapaPresentacion\bin\roslyn\System.Security.AccessControl.dll
+C:\Users\ASUS\Desktop\PROYECTO INTEGRADOR\CapaPresentacion\bin\roslyn\System.Security.Claims.dll
+C:\Users\ASUS\Desktop\PROYECTO INTEGRADOR\CapaPresentacion\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\ASUS\Desktop\PROYECTO INTEGRADOR\CapaPresentacion\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\ASUS\Desktop\PROYECTO INTEGRADOR\CapaPresentacion\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\ASUS\Desktop\PROYECTO INTEGRADOR\CapaPresentacion\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\ASUS\Desktop\PROYECTO INTEGRADOR\CapaPresentacion\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Users\ASUS\Desktop\PROYECTO INTEGRADOR\CapaPresentacion\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\ASUS\Desktop\PROYECTO INTEGRADOR\CapaPresentacion\bin\roslyn\System.ValueTuple.dll
+C:\Users\ASUS\Desktop\PROYECTO INTEGRADOR\CapaPresentacion\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\ASUS\Desktop\PROYECTO INTEGRADOR\CapaPresentacion\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\ASUS\Desktop\PROYECTO INTEGRADOR\CapaPresentacion\bin\roslyn\System.Xml.XPath.dll
+C:\Users\ASUS\Desktop\PROYECTO INTEGRADOR\CapaPresentacion\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\ASUS\Desktop\PROYECTO INTEGRADOR\CapaPresentacion\bin\roslyn\vbc.exe
+C:\Users\ASUS\Desktop\PROYECTO INTEGRADOR\CapaPresentacion\bin\roslyn\vbc.exe.config
+C:\Users\ASUS\Desktop\PROYECTO INTEGRADOR\CapaPresentacion\bin\roslyn\vbc.rsp
+C:\Users\ASUS\Desktop\PROYECTO INTEGRADOR\CapaPresentacion\bin\roslyn\VBCSCompiler.exe
+C:\Users\ASUS\Desktop\PROYECTO INTEGRADOR\CapaPresentacion\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\ASUS\Desktop\PROYECTO INTEGRADOR\CapaPresentacion\bin\CapaDatos.dll
+C:\Users\ASUS\Desktop\PROYECTO INTEGRADOR\CapaPresentacion\bin\CapaNegocio.dll
+C:\Users\ASUS\Desktop\PROYECTO INTEGRADOR\CapaPresentacion\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\ASUS\Desktop\PROYECTO INTEGRADOR\CapaPresentacion\bin\CapaDatos.pdb
+C:\Users\ASUS\Desktop\PROYECTO INTEGRADOR\CapaPresentacion\bin\CapaDatos.dll.config
+C:\Users\ASUS\Desktop\PROYECTO INTEGRADOR\CapaPresentacion\bin\CapaNegocio.pdb
+C:\Users\ASUS\Desktop\PROYECTO INTEGRADOR\CapaPresentacion\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\ASUS\Desktop\PROYECTO INTEGRADOR\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.CopyComplete
