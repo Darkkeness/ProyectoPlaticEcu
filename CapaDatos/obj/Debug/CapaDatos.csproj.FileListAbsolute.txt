@@ -12,3 +12,10 @@ C:\Users\ASUS\Desktop\PROYECTO INTEGRADOR\CapaDatos\obj\Debug\CapaDatos.csprojAs
 C:\Users\ASUS\Desktop\PROYECTO INTEGRADOR\CapaDatos\obj\Debug\CapaDatos.csproj.CoreCompileInputs.cache
 C:\Users\ASUS\Desktop\PROYECTO INTEGRADOR\CapaDatos\obj\Debug\CapaDatos.dll
 C:\Users\ASUS\Desktop\PROYECTO INTEGRADOR\CapaDatos\obj\Debug\CapaDatos.pdb
+C:\Users\ASUS\source\repos\ProyectoPlasticEcu\CapaDatos\bin\Debug\CapaDatos.dll.config
+C:\Users\ASUS\source\repos\ProyectoPlasticEcu\CapaDatos\bin\Debug\CapaDatos.dll
+C:\Users\ASUS\source\repos\ProyectoPlasticEcu\CapaDatos\bin\Debug\CapaDatos.pdb
+C:\Users\ASUS\source\repos\ProyectoPlasticEcu\CapaDatos\obj\Debug\CapaDatos.csprojAssemblyReference.cache
+C:\Users\ASUS\source\repos\ProyectoPlasticEcu\CapaDatos\obj\Debug\CapaDatos.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\source\repos\ProyectoPlasticEcu\CapaDatos\obj\Debug\CapaDatos.dll
+C:\Users\ASUS\source\repos\ProyectoPlasticEcu\CapaDatos\obj\Debug\CapaDatos.pdb

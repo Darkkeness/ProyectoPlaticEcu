@@ -16,7 +16,7 @@ namespace CapaPresentacion
             if (Session["usuario"] != null)
             {
                 Tbl_Usuario usu = (Tbl_Usuario)Session["usuario"];
-                sesion = usu.Usu_Nombre;
+                sesion = usu.Usu_Nombre.ToUpper();
             }
             else
             {

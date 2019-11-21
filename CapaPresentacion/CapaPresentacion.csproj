@@ -86,7 +86,7 @@
     <Content Include="css\maps\jquery-jvectormap-2.0.3.css" />
     <Content Include="images\american-express.png" />
     <Content Include="images\cropper.jpg" />
-    <Content Include="images\favicon.ico" />
+    <Content Include="images\icono.ico" />
     <Content Include="images\img.png" />
     <Content Include="images\inbox.png" />
     <Content Include="images\mastercard.png" />
