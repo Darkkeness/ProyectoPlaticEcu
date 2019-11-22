@@ -14,7 +14,15 @@ namespace CapaPresentacion.MANTENIMIETOS
         String id;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (txtPersona.Items.Count <= 1)
+            {
+                txtPersona.DataTextField = "Per_Nombre";
+                txtPersona.DataValueField = "Per_Id";
+                txtPersona.DataSource = con.comboBoxClinete();
+                txtPersona.DataBind();
+            }
+       
+   
             GrvCliente.DataSource = con.listarTodoCliente();
             GrvCliente.DataBind();
         }
@@ -55,8 +63,8 @@ namespace CapaPresentacion.MANTENIMIETOS
         {
             Tbl_Cliente cli = new Tbl_Cliente();
             cli.Cli_Estado = Convert.ToChar("A");
-            cli.Cli_Cargo = txtCargo.Text;
-            cli.Cli_Per_Id = 1;
+            cli.Cli_Cargo = txtCargo.Text.ToUpper();
+            cli.Cli_Per_Id = Convert.ToInt32(txtPersona.Text);
             con.guardarCliente(cli);
             Response.Write("<script>alert('Se A Ingresado Correctamente');window.location.href='ListaCliente.aspx';</script>");
 

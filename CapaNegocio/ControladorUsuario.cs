@@ -61,6 +61,7 @@ namespace CapaNegocio
         public void eliminarUsuario(Tbl_Usuario usu)
         {
             comand.Tbl_Usuario.DeleteOnSubmit(usu);
+            comand.Tbl_Persona.DeleteOnSubmit(usu.Tbl_Persona);
             comand.SubmitChanges();
         }
 

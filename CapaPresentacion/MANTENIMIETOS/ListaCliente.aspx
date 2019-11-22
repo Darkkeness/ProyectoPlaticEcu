@@ -16,7 +16,9 @@
     <asp:GridView HeaderStyle-HorizontalAlign="Center" SelectedRowStyle-BackColor="White" SelectedRowStyle-ForeColor="Black" SelectedRowStyle-Font-Bold="true" OnSelectedIndexChanged="GrvCliente_SelectedIndexChanged" RowStyle-HorizontalAlign="Center" Width="70%" ID="GrvCliente" runat="server" CssClass="table table-dark" DataKeyNames="Cli_Id" AutoGenerateColumns="False">
         <Columns>
             <asp:BoundField  DataField="Cli_Id"  HeaderText="Codigo" SortExpression="CliId"></asp:BoundField>
-            <asp:BoundField DataField="Cli_Cargo" HeaderText="Cargo" SortExpression="CliCargo"></asp:BoundField>
+            <asp:BoundField DataField="Cli_Cargo" HeaderText="Cargo"  SortExpression="CliCargo"></asp:BoundField>
+            <asp:BoundField DataField="Tbl_Persona.Per_Nombre" HeaderText="Persona Asignada" ></asp:BoundField>
+            <asp:BoundField DataField="Tbl_Persona.Per_Cedula" HeaderText="Cedula Persona" ></asp:BoundField>
             <asp:CommandField ShowSelectButton="True" ControlStyle-CssClass="btn btn-warning" ButtonType="Button" ShowHeader="True" HeaderText=""></asp:CommandField>
         </Columns>
     </asp:GridView>
@@ -32,9 +34,9 @@
                 </div>
                 <div class="modal-body">
                     <br />
-   
-                    <br />
                     <asp:TextBox runat="server" ID="txtCargo" CssClass="form-control" placeholder="Cargo"  />
+                    <br />
+                    <asp:DropDownList runat="server"  ID="txtPersona" CssClass="form-control" placeholder="Cargo"  />
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

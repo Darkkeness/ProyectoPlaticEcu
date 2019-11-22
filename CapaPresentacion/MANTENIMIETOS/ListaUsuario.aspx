@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/template.Master" AutoEventWireup="true" CodeBehind="ListaUsuario.aspx.cs" Inherits="CapaPresentacion.MANTENIMIETOS.ListaUsuario" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="title x_title text-dark text-xl-center h6"> Lista Usuarios </div>
+    <div class="title x_title text-dark text-xl-center h6"> LISTA USUARIOS </div>
     <asp:Panel runat="server" ID="pnlBotones" style="float:right" Visible="false" Width="90%" >
     <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#editar"><a class="fa fa-pencil"></a>
        Editar
@@ -34,19 +34,30 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <asp:TextBox runat="server" ID="txtCedula" CssClass="form-control" placeholder="Cedula" />
+                    <div>
+                         <div>
+                <asp:TextBox runat="server" TextMode="Number" ID="txtCedula" class="form-control" placeholder="Cedula" required="Requiere Usuario" MaxLength="10" />
+              </div>
+                <br />
+                <asp:TextBox runat="server" type="text" ID="txtNombre" class="form-control" placeholder="Nombre" required="Requiere nombre" />
+              </div>
                     <br />
-                    <asp:TextBox runat="server" ID="txtApellidos" CssClass="form-control" placeholder="Apellidos" />
-                    <br />
-                    <asp:TextBox runat="server" ID="txtNombres" CssClass="form-control" placeholder="Nombres" />
-                    <br />
-                    <asp:TextBox runat="server" ID="txtDireccion" CssClass="form-control" placeholder="Direccion" />
-                    <br />
-                    <asp:TextBox runat="server" ID="txtTelefono" CssClass="form-control" placeholder="Telefono" TextMode="Number" />
-                    <br />
-                    <asp:TextBox runat="server" ID="txtContraseña" CssClass="form-control" placeholder="Contraseña" TextMode="Password" />
-                    <br />
-                    <asp:TextBox runat="server" ID="txtCorreo" CssClass="form-control" placeholder="Email" TextMode="Email" />
+                 <div>
+                <asp:TextBox runat="server" type="text" ID="txtApellido" class="form-control" placeholder="Apellido" required="Requiere apellido" />
+              </div>
+                <br />
+                 <div>
+                <asp:TextBox runat="server" TextMode="Number" ID="txtTelefono" class="form-control" placeholder="Telefono" required="Requiere Telefono" MaxLength="10" />
+              </div>
+                <br />
+                 <div>
+                <asp:TextBox runat="server" TextMode="Email" ID="txtEmail" class="form-control" placeholder="Email" required="Requiere Email" />
+              </div>
+                <br />
+                 <div>
+                <asp:TextBox runat="server" TextMode="Password" ID="txtContraseña" class="form-control" placeholder="Contraseña" required="Requiere COntraseña" />
+              </div>
+                <br />
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

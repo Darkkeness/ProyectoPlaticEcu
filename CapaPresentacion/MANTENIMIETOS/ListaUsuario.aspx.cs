@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Validaciones;
 
 namespace CapaPresentacion.MANTENIMIETOS
 {
@@ -14,6 +15,7 @@ namespace CapaPresentacion.MANTENIMIETOS
         String id;
         ControladorUsuario usuarioC = new ControladorUsuario();
         public Tbl_Usuario usuario = new Tbl_Usuario();
+        ValCedula validar = new ValCedula();
         protected void Page_Load(object sender, EventArgs e)
         {
           
@@ -31,27 +33,48 @@ namespace CapaPresentacion.MANTENIMIETOS
 
         protected void Unnamed_Click(object sender, EventArgs e)
         {
-            //Tbl_Usuario objUsu = new Tbl_Usuario();
-            //try
-            //{
-            //objUsu.Usu_Nombre = txtNombres.Text;
-            //objUsu. = txtApellidos.Text;
-            //objUsu.Usu_Contrasenia = txtContraseña.Text;
-            //objUsu.UsuCorreo = txtCorreo.Text;
-            //objUsu.UsuDireccion = txtDireccion.Text;
-            //objUsu.UsuNomLogin = txtNombres.Text;
-            //objUsu.UsuTelefono = txtTelefono.Text;
-            //objUsu.UsuFHR = DateTime.Now;
-            //objUsu.TusId = 1;
-            //usuarioC.guardarUsuario(objUsu);
-            //Response.Write("<script>alert('Se Guardo Correctamente');window.location.href = 'ListaUsuario.aspx';</script>");
-            //}
-            //catch (Exception ex)
-            //{
-            //    Response.Write("<script>alert('ERROR AL GUARDAR');window.location.href = 'ListaUsuario.aspx';</script>");
-            //    Console.Write(ex);
-                
-            //}
+            Tbl_Usuario usu = new Tbl_Usuario();
+            Tbl_Persona per = new Tbl_Persona();
+            try
+            {
+                if (validar.ValidarCedula(txtCedula.Text) == true)
+                {
+                    if (usuarioC.buscarPersona(txtCedula.Text) == null)
+                    {
+
+                        per.Per_Nombre = txtNombre.Text;
+                        per.Per_Apellido_Materno = txtApellido.Text;
+                        per.Per_Apellido_Paterno = txtApellido.Text;
+                        per.Per_Cedula = txtCedula.Text;
+                        per.Per_Direccion = txtEmail.Text;
+                        per.Per_Telefono = txtTelefono.Text;
+                        per.Per_Estado = Convert.ToChar("A");
+                        usuarioC.guardarPersona(per);
+
+
+                        usu.Usu_Nombre = txtNombre.Text;
+                        usu.Usu_Contrasenia = validar.Encriptar(txtContraseña.Text);
+                        usu.Usu_Rol_Id = 1;
+                        usu.Usu_Estado = Convert.ToChar("A");
+                        usu.Usu_Per_Id = usuarioC.buscarPersona(per.Per_Cedula).Per_Id;
+                        usuarioC.guardarUsuario(usu);
+
+                        Response.Write("<script>alert('Se creo Correctamente');window.location.href = 'ListaUsuario.aspx';</script>");
+                    }
+                    else
+                    {
+                        Response.Write("<script>alert('Usuario con numero de cedula existente');</script>");
+                    }
+                }
+                else
+                {
+                    Response.Write("<script>alert('Cedula Erronea');</script>");
+                }
+            }
+            catch
+            {
+                Response.Write("<script>alert('Telefono mayor al digitos permitidos');</script>");
+            }
 
         }
 
@@ -99,7 +122,7 @@ namespace CapaPresentacion.MANTENIMIETOS
                 usuarioC.eliminarUsuario(usuarioC.buscarPorId(Convert.ToInt32(hdId.Value)));
                 Response.Redirect("ListaUsuario.aspx");
             }catch{
-                Response.Write("<script>alert('ERROR AL ELIMINAR');window.location.href = 'ListaUsuario.aspx';</script>");
+                Response.Write("<script>alert('ERROR AL ELIMINAR REGISTRO REFERENCIADO');window.location.href = 'ListaUsuario.aspx';</script>");
             }
             
         }

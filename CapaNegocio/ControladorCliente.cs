@@ -38,5 +38,12 @@ namespace CapaDatos
             comand.SubmitChanges();
         }
 
+        public List<Tbl_Persona> comboBoxClinete()
+        {
+            var query = comand.Tbl_Persona.Where(x => x.Per_Estado.Equals("A"));
+            return query.ToList();
+
+        }
+
     }
 }
