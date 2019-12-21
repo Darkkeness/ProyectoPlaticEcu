@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Mail;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Web;
 using CapaDatos;
 using CapaNegocio;
@@ -12,6 +13,20 @@ namespace Validaciones
 {
     public class ValCedula
     {
+        public bool ValidatePassword(string password)
+        {
+            string patternPassword = @"([A-Z]+)(.{8,15})([0-9]+)([!@#$%^&*()_+=\[{\]};:<>|./?,-])([a-z]+)";
+            if (!string.IsNullOrEmpty(password))
+            {
+                if (!Regex.IsMatch(password, patternPassword))
+                {
+                    return false;
+                }
+
+            }
+            return true;
+        }
+
         public string Encriptar(string texto)
         {
             try

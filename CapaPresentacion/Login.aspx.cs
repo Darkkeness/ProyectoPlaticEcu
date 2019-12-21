@@ -10,6 +10,7 @@ using System.Net.Mail;
 using System.Security.Cryptography;
 using System.Text;
 using Validaciones;
+using System.Text.RegularExpressions;
 
 namespace CapaPresentacion
 {
@@ -26,6 +27,13 @@ namespace CapaPresentacion
                 Session["intento"] = "0";
             }
             
+        }
+
+        public static bool IsValidPassword(string plainText)
+        {
+            Regex regex = new Regex(@"^(.{0,7}|[^0-9]*|[^A-Z])$");
+            Match match = regex.Match(plainText);
+            return match.Success;
         }
 
         protected void Unnamed3_Click(object sender, EventArgs e)

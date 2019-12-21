@@ -57,7 +57,7 @@
               </div>
                 <br />
                  <div>
-                <asp:TextBox runat="server" TextMode="Password" ID="txtContraseña" class="form-control" placeholder="Contraseña" required="Requiere COntraseña" />
+                <asp:TextBox runat="server"  TextMode="Password" ID="txtContraseña" class="form-control" placeholder="Contraseña" required="Requiere COntraseña" />
               </div>
                 <br />
 

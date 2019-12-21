@@ -37,11 +37,11 @@
               <h1>Login Form</h1>
               <div>
                   <asp:Label id="intentos" runat="server" CssClass="text-capitalize text-danger" ></asp:Label>
-                <asp:TextBox runat="server" type="text" ID="txtUser" class="form-control" placeholder="Username" required="Requiere Usuario" />
+                <asp:TextBox runat="server"  type="text" ID="txtUser" class="form-control" placeholder="Username" required="Requiere Usuario" />
               </div>
                 <br />
               <div>
-                <asp:TextBox runat="server" type="password" ID="txtPass" class="form-control" placeholder="Password" required="" />
+                <asp:TextBox runat="server"   type="password" ID="txtPass" class="form-control" placeholder="Password" required="" />
               </div>
               <div>
                   <hr />
