@@ -26,7 +26,6 @@ namespace CapaPresentacion
             Tbl_Persona per = new Tbl_Persona();
             try { 
             if (validar.ValidarCedula(txtCedula.Text)==true) {
-                    if (validar.ValidatePassword(txtContraseña.Text) == true) { 
                         if (usuar.buscarPersona(txtCedula.Text) == null) { 
 
                 per.Per_Nombre = txtNombre.Text;
@@ -52,11 +51,6 @@ namespace CapaPresentacion
                 {
                     Response.Write("<script>alert('Usuario con numero de cedula existente');</script>");
                 }
-                    }
-                    else
-                    {
-                        Response.Write("<script>alert('La contraseña debe tener almenos un mayusculo y caracter especial');</script>");
-                    }
                 }
             else
             {
