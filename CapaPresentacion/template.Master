@@ -59,8 +59,10 @@
 
                     <li><a><i class="fa fa-cart-plus"></i> MODULO COMPRAS <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="/MANTENIMIETOS/ListaUsuario.aspx">Procesar Orden</a></li>
-                        
+                      <li><a href="/ModuloCompra/ProcesarOrden.aspx">Procesar Orden</a></li>
+                         <li><a href="/ModuloCompra/OrdenCompra.aspx">Orden de Compra</a></li>
+                        <li><a href="/ModuloCompra/EnviarOrden.aspx">Orden Enviada</a></li>
+                        <li><a href="/ModuloCompra/Compras.aspx">Compras</a></li>
                     </ul>
                   </li>
                 </ul>

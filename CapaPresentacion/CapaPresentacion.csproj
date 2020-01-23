@@ -106,7 +106,10 @@
     <Content Include="MANTENIMIETOS\ListaCliente.aspx" />
     <Content Include="MANTENIMIETOS\ListaUsuario.aspx" />
     <Content Include="Menu.aspx" />
-    <Content Include="Modulo Compra\ProcesarOrden\ListaOrden.aspx" />
+    <Content Include="ModuloCompra\Compras.aspx" />
+    <Content Include="ModuloCompra\EnviarOrden.aspx" />
+    <Content Include="ModuloCompra\OrdenCompra.aspx" />
+    <Content Include="ModuloCompra\ProcesarOrden.aspx" />
     <Content Include="recuperarContraseña.aspx" />
     <Content Include="src\js\custom.js" />
     <Content Include="src\js\helpers\smartresize.js" />
@@ -3842,12 +3845,33 @@
     <Compile Include="Menu.aspx.designer.cs">
       <DependentUpon>Menu.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Modulo Compra\ProcesarOrden\ListaOrden.aspx.cs">
-      <DependentUpon>ListaOrden.aspx</DependentUpon>
+    <Compile Include="ModuloCompra\Compras.aspx.cs">
+      <DependentUpon>Compras.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Modulo Compra\ProcesarOrden\ListaOrden.aspx.designer.cs">
-      <DependentUpon>ListaOrden.aspx</DependentUpon>
+    <Compile Include="ModuloCompra\Compras.aspx.designer.cs">
+      <DependentUpon>Compras.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModuloCompra\EnviarOrden.aspx.cs">
+      <DependentUpon>EnviarOrden.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModuloCompra\EnviarOrden.aspx.designer.cs">
+      <DependentUpon>EnviarOrden.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModuloCompra\OrdenCompra.aspx.cs">
+      <DependentUpon>OrdenCompra.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModuloCompra\OrdenCompra.aspx.designer.cs">
+      <DependentUpon>OrdenCompra.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModuloCompra\ProcesarOrden.aspx.cs">
+      <DependentUpon>ProcesarOrden.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModuloCompra\ProcesarOrden.aspx.designer.cs">
+      <DependentUpon>ProcesarOrden.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="recuperarContraseña.aspx.cs">
@@ -4922,7 +4946,9 @@
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

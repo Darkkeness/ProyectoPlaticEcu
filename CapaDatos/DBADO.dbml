@@ -1,47 +1,282 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="EcuPlaticos" Class="DBADODataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-982IP0Q\SQLEXPRESS;Initial Catalog=EcuPlaticos;Integrated Security=True" SettingsObjectName="CapaDatos.Properties.Settings" SettingsPropertyName="EcuPlaticosConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Tbl_Acabado" Member="Tbl_Acabado">
+    <Type Name="Tbl_Acabado">
+      <Column Name="Acb_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Acb_Pro_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Acb_Orp_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Acb_Estado" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Association Name="Tbl_Acabado_Tbl_Producto_Acabado" Member="Tbl_Producto_Acabado" ThisKey="Acb_Id" OtherKey="Pra_Acb_Id" Type="Tbl_Producto_Acabado" />
+      <Association Name="Tbl_Acabado_Tbl_Tipo_Acabado" Member="Tbl_Tipo_Acabado" ThisKey="Acb_Id" OtherKey="Tia_Acb_Id" Type="Tbl_Tipo_Acabado" />
+      <Association Name="Tbl_Orden_Produccion_Tbl_Acabado" Member="Tbl_Orden_Produccion" ThisKey="Acb_Orp_Id" OtherKey="Orp_Id" Type="Tbl_Orden_Produccion" IsForeignKey="true" />
+      <Association Name="Tbl_Producto_Tbl_Acabado" Member="Tbl_Producto" ThisKey="Acb_Pro_Id" OtherKey="Pro_Id" Type="Tbl_Producto" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tbl_Auditoria" Member="Tbl_Auditoria">
+    <Type Name="Tbl_Auditoria">
+      <Column Name="Aud_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Aud_Nombre" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="Aud_Usu_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Aud_Estado" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Association Name="Tbl_Usuario_Tbl_Auditoria" Member="Tbl_Usuario" ThisKey="Aud_Usu_Id" OtherKey="Usu_Id" Type="Tbl_Usuario" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tbl_Bodega" Member="Tbl_Bodega">
+    <Type Name="Tbl_Bodega">
+      <Column Name="Bod_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Bod_Nombre" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Bod_Cantidad" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Bod_Tib_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Bod_Descripcion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Bod_Dev_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Tbl_Bodega_Tbl_Despacho" Member="Tbl_Despacho" ThisKey="Bod_Id" OtherKey="Des_Bod_Id" Type="Tbl_Despacho" />
+      <Association Name="Tbl_Bodega_Tbl_Producto_Terminado" Member="Tbl_Producto_Terminado" ThisKey="Bod_Id" OtherKey="Prt_Bod_Id" Type="Tbl_Producto_Terminado" />
+      <Association Name="Tbl_Devoluciones_Tbl_Bodega" Member="Tbl_Devoluciones" ThisKey="Bod_Dev_Id" OtherKey="Dev_Id" Type="Tbl_Devoluciones" IsForeignKey="true" />
+      <Association Name="Tbl_Tipo_Bodega_Tbl_Bodega" Member="Tbl_Tipo_Bodega" ThisKey="Bod_Tib_Id" OtherKey="Tib_Id" Type="Tbl_Tipo_Bodega" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tbl_Categoria_Insumos" Member="Tbl_Categoria_Insumos">
+    <Type Name="Tbl_Categoria_Insumos">
+      <Column Name="Cai_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Cai_Nombre_Aditivo" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Cai_Descripcion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Tbl_Categoria_Insumos_Tbl_Insumos" Member="Tbl_Insumos" ThisKey="Cai_Id" OtherKey="Ins_Cai_Id" Type="Tbl_Insumos" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tbl_Categoria_Inventario" Member="Tbl_Categoria_Inventario">
+    <Type Name="Tbl_Categoria_Inventario">
+      <Column Name="Cti_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Cti_Nombre" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Cti_Descripcion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Association Name="Tbl_Categoria_Inventario_Tbl_Inventario" Member="Tbl_Inventario" ThisKey="Cti_Id" OtherKey="Inv_Cti_Id" Type="Tbl_Inventario" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tbl_Categoria_Maquinaria" Member="Tbl_Categoria_Maquinaria">
+    <Type Name="Tbl_Categoria_Maquinaria">
+      <Column Name="Cam_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Cam_Nombre" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Cam_Cantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Cam_Descripcion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Cam_Precio_Unitario" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Association Name="Tbl_Categoria_Maquinaria_Tbl_Maquinaria" Member="Tbl_Maquinaria" ThisKey="Cam_Id" OtherKey="Maq_Cam_Id" Type="Tbl_Maquinaria" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tbl_Categoria_Orden_Compra" Member="Tbl_Categoria_Orden_Compra">
+    <Type Name="Tbl_Categoria_Orden_Compra">
+      <Column Name="Coc_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Coc_Nombre" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Coc_Descripcion" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Coc_Orc_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Tbl_Orden_Compra_Tbl_Categoria_Orden_Compra" Member="Tbl_Orden_Compra" ThisKey="Coc_Orc_Id" OtherKey="Orc_Id" Type="Tbl_Orden_Compra" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tbl_Categoria_Polimeros" Member="Tbl_Categoria_Polimeros">
+    <Type Name="Tbl_Categoria_Polimeros">
+      <Column Name="Cap_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Cap_Nombre" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Cap_Descripcion" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Association Name="Tbl_Categoria_Polimeros_Tbl_Polimeros" Member="Tbl_Polimeros" ThisKey="Cap_Id" OtherKey="Pol_Cap_Id" Type="Tbl_Polimeros" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tbl_Categoria_Repuesto" Member="Tbl_Categoria_Repuesto">
+    <Type Name="Tbl_Categoria_Repuesto">
+      <Column Name="Ctr_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Ctr_Nombre" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Ctr_Descripcion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Tbl_Categoria_Repuesto_Tbl_Repuesto" Member="Tbl_Repuesto" ThisKey="Ctr_Id" OtherKey="Rep_Ctr_Id" Type="Tbl_Repuesto" />
+    </Type>
+  </Table>
   <Table Name="dbo.Tbl_Cliente" Member="Tbl_Cliente">
     <Type Name="Tbl_Cliente">
       <Column Name="Cli_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Cli_Per_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Cli_Cargo" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
       <Column Name="Cli_Estado" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Association Name="Tbl_Cliente_Tbl_Venta" Member="Tbl_Venta" ThisKey="Cli_Id" OtherKey="Ven_Cli_Id" Type="Tbl_Venta" />
       <Association Name="Tbl_Persona_Tbl_Cliente" Member="Tbl_Persona" ThisKey="Cli_Per_Id" OtherKey="Per_Id" Type="Tbl_Persona" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Tbl_Persona" Member="Tbl_Persona">
-    <Type Name="Tbl_Persona">
-      <Column Name="Per_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Per_Nombre" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Per_Apellido_Materno" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
-      <Column Name="Per_Apellido_Paterno" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
-      <Column Name="Per_Cedula" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
-      <Column Name="Per_Direccion" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
-      <Column Name="Per_Telefono" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
-      <Column Name="Per_Estado" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
-      <Association Name="Tbl_Persona_Tbl_Cliente" Member="Tbl_Cliente" ThisKey="Per_Id" OtherKey="Cli_Per_Id" Type="Tbl_Cliente" />
-      <Association Name="Tbl_Persona_Tbl_Usuario" Member="Tbl_Usuario" ThisKey="Per_Id" OtherKey="Usu_Per_Id" Type="Tbl_Usuario" />
+  <Table Name="dbo.Tbl_Compra" Member="Tbl_Compra">
+    <Type Name="Tbl_Compra">
+      <Column Name="Com_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Com_Pol_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Com_Ins_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Com_Maq_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Com_Rep_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Com_Pal_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Com_Inv_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Com_Dtc_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Tbl_Compra_Tbl_Proveedor_Compra" Member="Tbl_Proveedor_Compra" ThisKey="Com_Id" OtherKey="Prc_Com_Id" Type="Tbl_Proveedor_Compra" />
+      <Association Name="Tbl_Detalle_Compra_Tbl_Compra" Member="Tbl_Detalle_Compra" ThisKey="Com_Dtc_Id" OtherKey="Dtc_Id" Type="Tbl_Detalle_Compra" IsForeignKey="true" />
+      <Association Name="Tbl_Insumos_Tbl_Compra" Member="Tbl_Insumos" ThisKey="Com_Ins_Id" OtherKey="Ins_Id" Type="Tbl_Insumos" IsForeignKey="true" />
+      <Association Name="Tbl_Inventario_Tbl_Compra" Member="Tbl_Inventario" ThisKey="Com_Inv_Id" OtherKey="Inv_Id" Type="Tbl_Inventario" IsForeignKey="true" />
+      <Association Name="Tbl_Maquinaria_Tbl_Compra" Member="Tbl_Maquinaria" ThisKey="Com_Maq_Id" OtherKey="Maq_Id" Type="Tbl_Maquinaria" IsForeignKey="true" />
+      <Association Name="Tbl_Paletizado_Tbl_Compra" Member="Tbl_Paletizado" ThisKey="Com_Pal_Id" OtherKey="Pal_Id" Type="Tbl_Paletizado" IsForeignKey="true" />
+      <Association Name="Tbl_Polimeros_Tbl_Compra" Member="Tbl_Polimeros" ThisKey="Com_Pol_Id" OtherKey="Pol_Id" Type="Tbl_Polimeros" IsForeignKey="true" />
+      <Association Name="Tbl_Repuesto_Tbl_Compra" Member="Tbl_Repuesto" ThisKey="Com_Rep_Id" OtherKey="Rep_Id" Type="Tbl_Repuesto" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Tbl_Usuario" Member="Tbl_Usuario">
-    <Type Name="Tbl_Usuario">
-      <Column Name="Usu_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Usu_Nombre" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
-      <Column Name="Usu_Contrasenia" Type="System.String" DbType="VarChar(32) NOT NULL" CanBeNull="false" />
-      <Column Name="Usu_Per_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Usu_Rol_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Usu_Estado" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
-      <Association Name="Tbl_Persona_Tbl_Usuario" Member="Tbl_Persona" ThisKey="Usu_Per_Id" OtherKey="Per_Id" Type="Tbl_Persona" IsForeignKey="true" />
-      <Association Name="Tbl_Rol_Tbl_Usuario" Member="Tbl_Rol" ThisKey="Usu_Rol_Id" OtherKey="Rol_Id" Type="Tbl_Rol" IsForeignKey="true" />
+  <Table Name="dbo.Tbl_Conductor" Member="Tbl_Conductor">
+    <Type Name="Tbl_Conductor">
+      <Column Name="Con_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Con_Nombre" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Con_Veh_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Tbl_Vehiculo_Tbl_Conductor" Member="Tbl_Vehiculo" ThisKey="Con_Veh_Id" OtherKey="Veh_Id" Type="Tbl_Vehiculo" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Tbl_Producto" Member="Tbl_Producto">
-    <Type Name="Tbl_Producto">
-      <Column Name="Pro_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Pro_Nombre" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
-      <Column Name="Pro_Orp_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Pro_Estado" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
-      <Association Name="Tbl_Orden_Produccion_Tbl_Producto" Member="Tbl_Orden_Produccion" ThisKey="Pro_Orp_Id" OtherKey="Orp_Id" Type="Tbl_Orden_Produccion" IsForeignKey="true" />
+  <Table Name="dbo.Tbl_Control_Calidad" Member="Tbl_Control_Calidad">
+    <Type Name="Tbl_Control_Calidad">
+      <Column Name="Coc_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Coc_Responsable" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Coc_Orp_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Tbl_Control_Calidad_Tbl_Tipo_Control_Calidad" Member="Tbl_Tipo_Control_Calidad" ThisKey="Coc_Id" OtherKey="Tic_Coc_Id" Type="Tbl_Tipo_Control_Calidad" />
+      <Association Name="Tbl_Orden_Produccion_Tbl_Control_Calidad" Member="Tbl_Orden_Produccion" ThisKey="Coc_Orp_Id" OtherKey="Orp_Id" Type="Tbl_Orden_Produccion" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tbl_Despacho" Member="Tbl_Despacho">
+    <Type Name="Tbl_Despacho">
+      <Column Name="Des_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Des_Bod_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Des_Ven_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Des_Estado" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Association Name="Tbl_Despacho_Tbl_Vehiculo" Member="Tbl_Vehiculo" ThisKey="Des_Id" OtherKey="Veh_Des_Id" Type="Tbl_Vehiculo" />
+      <Association Name="Tbl_Bodega_Tbl_Despacho" Member="Tbl_Bodega" ThisKey="Des_Bod_Id" OtherKey="Bod_Id" Type="Tbl_Bodega" IsForeignKey="true" />
+      <Association Name="Tbl_Venta_Tbl_Despacho" Member="Tbl_Venta" ThisKey="Des_Ven_Id" OtherKey="Ven_Id" Type="Tbl_Venta" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tbl_Desperdicio" Member="Tbl_Desperdicio">
+    <Type Name="Tbl_Desperdicio">
+      <Column Name="Des_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Des_Maq_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Des_Cantidad" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Des_Observacion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Des_Estado" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Association Name="Tbl_Desperdicio_Tbl_Tipo_Desperdicio" Member="Tbl_Tipo_Desperdicio" ThisKey="Des_Id" OtherKey="Tid_Des_Id" Type="Tbl_Tipo_Desperdicio" />
+      <Association Name="Tbl_Maquina_Tbl_Desperdicio" Member="Tbl_Maquina" ThisKey="Des_Maq_Id" OtherKey="Maq_Id" Type="Tbl_Maquina" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tbl_Detalle_Compra" Member="Tbl_Detalle_Compra">
+    <Type Name="Tbl_Detalle_Compra">
+      <Column Name="Dtc_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Dtc_Cantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Dtc_Precio" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Association Name="Tbl_Detalle_Compra_Tbl_Compra" Member="Tbl_Compra" ThisKey="Dtc_Id" OtherKey="Com_Dtc_Id" Type="Tbl_Compra" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tbl_Detalle_Venta" Member="Tbl_Detalle_Venta">
+    <Type Name="Tbl_Detalle_Venta">
+      <Column Name="Dtv_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Dtv_Cantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Dtv_Precio" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Dtv_Descuento" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Dtv_Ven_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Tbl_Venta_Tbl_Detalle_Venta" Member="Tbl_Venta" ThisKey="Dtv_Ven_Id" OtherKey="Ven_Id" Type="Tbl_Venta" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tbl_Devoluciones" Member="Tbl_Devoluciones">
+    <Type Name="Tbl_Devoluciones">
+      <Column Name="Dev_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Dev_Nombre" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Dev_Cantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Dev_Motivo_Devolucion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Dev_Ven_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Tbl_Devoluciones_Tbl_Bodega" Member="Tbl_Bodega" ThisKey="Dev_Id" OtherKey="Bod_Dev_Id" Type="Tbl_Bodega" />
+      <Association Name="Tbl_Venta_Tbl_Devoluciones" Member="Tbl_Venta" ThisKey="Dev_Ven_Id" OtherKey="Ven_Id" Type="Tbl_Venta" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tbl_Factura" Member="Tbl_Factura">
+    <Type Name="Tbl_Factura">
+      <Column Name="Fac_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Fac_Ruc" Type="System.String" DbType="VarChar(13)" CanBeNull="true" />
+      <Column Name="Fac_Fecha" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Fac_Nombre_Empresa" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Fac_Ven_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Tbl_Venta_Tbl_Factura" Member="Tbl_Venta" ThisKey="Fac_Ven_Id" OtherKey="Ven_Id" Type="Tbl_Venta" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tbl_Hoja_Ruta" Member="Tbl_Hoja_Ruta">
+    <Type Name="Tbl_Hoja_Ruta">
+      <Column Name="Hor_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Hor_Ruta" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Hor_FECHA" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Hor_Hora_Inicio" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="Hor_Hora_Fin" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="Hor_Num_Factura" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Hor_Num_Cheque" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Hor_Efectivo_Cantidad" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Hor_Empresa" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Hor_Veh_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Tbl_Vehiculo_Tbl_Hoja_Ruta" Member="Tbl_Vehiculo" ThisKey="Hor_Veh_Id" OtherKey="Veh_Id" Type="Tbl_Vehiculo" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tbl_Incidencias" Member="Tbl_Incidencias">
+    <Type Name="Tbl_Incidencias">
+      <Column Name="Inc_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Inc_Nombre" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Inc_Per_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Inc_Estado" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Association Name="Tbl_Persona_Tbl_Incidencias" Member="Tbl_Persona" ThisKey="Inc_Per_Id" OtherKey="Per_Id" Type="Tbl_Persona" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tbl_Insumos" Member="Tbl_Insumos">
+    <Type Name="Tbl_Insumos">
+      <Column Name="Ins_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Ins_Nombre" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Ins_Cantidad" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Ins_Descripcion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Ins_Precio_Unitario" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Ins_Precio_Neto" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Ins_Cai_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Tbl_Insumos_Tbl_Compra" Member="Tbl_Compra" ThisKey="Ins_Id" OtherKey="Com_Ins_Id" Type="Tbl_Compra" />
+      <Association Name="Tbl_Categoria_Insumos_Tbl_Insumos" Member="Tbl_Categoria_Insumos" ThisKey="Ins_Cai_Id" OtherKey="Cai_Id" Type="Tbl_Categoria_Insumos" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tbl_Inventario" Member="Tbl_Inventario">
+    <Type Name="Tbl_Inventario">
+      <Column Name="Inv_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Inv_Codigo" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Inv_Nombre" Type="System.String" DbType="VarChar(60)" CanBeNull="true" />
+      <Column Name="Inv_Precio_Venta" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Inv_Stock" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Inv_Cti_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Tbl_Inventario_Tbl_Compra" Member="Tbl_Compra" ThisKey="Inv_Id" OtherKey="Com_Inv_Id" Type="Tbl_Compra" />
+      <Association Name="Tbl_Inventario_Tbl_Kardex" Member="Tbl_Kardex" ThisKey="Inv_Id" OtherKey="Kar_Inv_Id" Type="Tbl_Kardex" />
+      <Association Name="Tbl_Categoria_Inventario_Tbl_Inventario" Member="Tbl_Categoria_Inventario" ThisKey="Inv_Cti_Id" OtherKey="Cti_Id" Type="Tbl_Categoria_Inventario" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tbl_Kardex" Member="Tbl_Kardex">
+    <Type Name="Tbl_Kardex">
+      <Column Name="Kar_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Kar_Cantidad" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Kar_Detalle" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Kar_Serie" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Kar_Documento_Numero" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Kar_Inv_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Tbl_Inventario_Tbl_Kardex" Member="Tbl_Inventario" ThisKey="Kar_Inv_Id" OtherKey="Inv_Id" Type="Tbl_Inventario" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tbl_Maquina" Member="Tbl_Maquina">
+    <Type Name="Tbl_Maquina">
+      <Column Name="Maq_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Maq_Nombre" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="Maq_Capacidad" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Maq_Produccion" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Maq_Estado" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Association Name="Tbl_Maquina_Tbl_Desperdicio" Member="Tbl_Desperdicio" ThisKey="Maq_Id" OtherKey="Des_Maq_Id" Type="Tbl_Desperdicio" />
+      <Association Name="Tbl_Maquina_Tbl_Orden_Produccion" Member="Tbl_Orden_Produccion" ThisKey="Maq_Id" OtherKey="Orp_Maq_Id" Type="Tbl_Orden_Produccion" />
+      <Association Name="Tbl_Maquina_Tbl_Tipo_Maquina" Member="Tbl_Tipo_Maquina" ThisKey="Maq_Id" OtherKey="Tim_Maq_Id" Type="Tbl_Tipo_Maquina" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tbl_Maquinaria" Member="Tbl_Maquinaria">
+    <Type Name="Tbl_Maquinaria">
+      <Column Name="Maq_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Maq_Nombre" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Maq_Cantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Maq_Descripcion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Maq_Precio_Unitario" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Maq_Cam_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Tbl_Maquinaria_Tbl_Compra" Member="Tbl_Compra" ThisKey="Maq_Id" OtherKey="Com_Maq_Id" Type="Tbl_Compra" />
+      <Association Name="Tbl_Categoria_Maquinaria_Tbl_Maquinaria" Member="Tbl_Categoria_Maquinaria" ThisKey="Maq_Cam_Id" OtherKey="Cam_Id" Type="Tbl_Categoria_Maquinaria" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Tbl_Orden_Produccion" Member="Tbl_Orden_Produccion">
@@ -61,7 +296,115 @@
       <Column Name="Orp_Total_kg" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Orp_Orc_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Orp_Estado" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Association Name="Tbl_Orden_Produccion_Tbl_Acabado" Member="Tbl_Acabado" ThisKey="Orp_Id" OtherKey="Acb_Orp_Id" Type="Tbl_Acabado" />
+      <Association Name="Tbl_Orden_Produccion_Tbl_Control_Calidad" Member="Tbl_Control_Calidad" ThisKey="Orp_Id" OtherKey="Coc_Orp_Id" Type="Tbl_Control_Calidad" />
       <Association Name="Tbl_Orden_Produccion_Tbl_Producto" Member="Tbl_Producto" ThisKey="Orp_Id" OtherKey="Pro_Orp_Id" Type="Tbl_Producto" />
+      <Association Name="Tbl_Maquina_Tbl_Orden_Produccion" Member="Tbl_Maquina" ThisKey="Orp_Maq_Id" OtherKey="Maq_Id" Type="Tbl_Maquina" IsForeignKey="true" />
+      <Association Name="Tbl_Orden_Compra_Tbl_Orden_Produccion" Member="Tbl_Orden_Compra" ThisKey="Orp_Orc_Id" OtherKey="Orc_Id" Type="Tbl_Orden_Compra" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tbl_Paletizado" Member="Tbl_Paletizado">
+    <Type Name="Tbl_Paletizado">
+      <Column Name="Pal_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Pal_Nombre" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Pal_Cantidad" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Pal_Descripcion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Pal_Precio_Unitario" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Pal_Precio_Neto" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Pal_Tipo_Paletizado" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Association Name="Tbl_Paletizado_Tbl_Compra" Member="Tbl_Compra" ThisKey="Pal_Id" OtherKey="Com_Pal_Id" Type="Tbl_Compra" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tbl_Persona" Member="Tbl_Persona">
+    <Type Name="Tbl_Persona">
+      <Column Name="Per_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Per_Nombre" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Per_Apellido_Materno" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="Per_Apellido_Paterno" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="Per_Cedula" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Per_Direccion" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="Per_Telefono" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Per_Estado" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Association Name="Tbl_Persona_Tbl_Cliente" Member="Tbl_Cliente" ThisKey="Per_Id" OtherKey="Cli_Per_Id" Type="Tbl_Cliente" />
+      <Association Name="Tbl_Persona_Tbl_Incidencias" Member="Tbl_Incidencias" ThisKey="Per_Id" OtherKey="Inc_Per_Id" Type="Tbl_Incidencias" />
+      <Association Name="Tbl_Persona_Tbl_Persona_Venta" Member="Tbl_Persona_Venta" ThisKey="Per_Id" OtherKey="Pev_Per_Id" Type="Tbl_Persona_Venta" />
+      <Association Name="Tbl_Persona_Tbl_Usuario" Member="Tbl_Usuario" ThisKey="Per_Id" OtherKey="Usu_Per_Id" Type="Tbl_Usuario" />
+      <Association Name="Tbl_Persona_Tbl_Orden_Compra" Member="Tbl_Orden_Compra" ThisKey="Per_Id" OtherKey="Orc_Per_Id" Type="Tbl_Orden_Compra" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tbl_Persona_Venta" Member="Tbl_Persona_Venta">
+    <Type Name="Tbl_Persona_Venta">
+      <Column Name="Pev_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Pev_Per_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Pev_Ven_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Pev_Estado" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Association Name="Tbl_Persona_Tbl_Persona_Venta" Member="Tbl_Persona" ThisKey="Pev_Per_Id" OtherKey="Per_Id" Type="Tbl_Persona" IsForeignKey="true" />
+      <Association Name="Tbl_Venta_Tbl_Persona_Venta" Member="Tbl_Venta" ThisKey="Pev_Ven_Id" OtherKey="Ven_Id" Type="Tbl_Venta" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tbl_Polimeros" Member="Tbl_Polimeros">
+    <Type Name="Tbl_Polimeros">
+      <Column Name="Pol_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Pol_Nombre" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Pol_Cantidad" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Pol_Descripcion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Pol_Precio_Unitario" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Pol_Percio_Neto" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Pol_Cap_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Tbl_Polimeros_Tbl_Compra" Member="Tbl_Compra" ThisKey="Pol_Id" OtherKey="Com_Pol_Id" Type="Tbl_Compra" />
+      <Association Name="Tbl_Categoria_Polimeros_Tbl_Polimeros" Member="Tbl_Categoria_Polimeros" ThisKey="Pol_Cap_Id" OtherKey="Cap_Id" Type="Tbl_Categoria_Polimeros" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tbl_Producto" Member="Tbl_Producto">
+    <Type Name="Tbl_Producto">
+      <Column Name="Pro_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Pro_Nombre" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Pro_Orp_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Pro_Estado" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Association Name="Tbl_Producto_Tbl_Acabado" Member="Tbl_Acabado" ThisKey="Pro_Id" OtherKey="Acb_Pro_Id" Type="Tbl_Acabado" />
+      <Association Name="Tbl_Producto_Tbl_Producto_Acabado" Member="Tbl_Producto_Acabado" ThisKey="Pro_Id" OtherKey="Pra_Pro_Id" Type="Tbl_Producto_Acabado" />
+      <Association Name="Tbl_Producto_Tbl_Tipo_Producto" Member="Tbl_Tipo_Producto" ThisKey="Pro_Id" OtherKey="Tip_Pro_Id" Type="Tbl_Tipo_Producto" />
+      <Association Name="Tbl_Orden_Produccion_Tbl_Producto" Member="Tbl_Orden_Produccion" ThisKey="Pro_Orp_Id" OtherKey="Orp_Id" Type="Tbl_Orden_Produccion" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tbl_Producto_Acabado" Member="Tbl_Producto_Acabado">
+    <Type Name="Tbl_Producto_Acabado">
+      <Column Name="Pra_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Pra_Pro_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Pra_Acb_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Tbl_Acabado_Tbl_Producto_Acabado" Member="Tbl_Acabado" ThisKey="Pra_Acb_Id" OtherKey="Acb_Id" Type="Tbl_Acabado" IsForeignKey="true" />
+      <Association Name="Tbl_Producto_Tbl_Producto_Acabado" Member="Tbl_Producto" ThisKey="Pra_Pro_Id" OtherKey="Pro_Id" Type="Tbl_Producto" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tbl_Producto_Terminado" Member="Tbl_Producto_Terminado">
+    <Type Name="Tbl_Producto_Terminado">
+      <Column Name="Prt_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Prt_Tpt_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Prt_Cantidad" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Prt_Bod_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Tbl_Bodega_Tbl_Producto_Terminado" Member="Tbl_Bodega" ThisKey="Prt_Bod_Id" OtherKey="Bod_Id" Type="Tbl_Bodega" IsForeignKey="true" />
+      <Association Name="Tbl_Tipo_Producto_Terminado_Tbl_Producto_Terminado" Member="Tbl_Tipo_Producto_Terminado" ThisKey="Prt_Tpt_Id" OtherKey="Tpt_Id" Type="Tbl_Tipo_Producto_Terminado" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tbl_Proveedor_Compra" Member="Tbl_Proveedor_Compra">
+    <Type Name="Tbl_Proveedor_Compra">
+      <Column Name="Prc_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Prc_Prv_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Prc_Com_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Tbl_Compra_Tbl_Proveedor_Compra" Member="Tbl_Compra" ThisKey="Prc_Com_Id" OtherKey="Com_Id" Type="Tbl_Compra" IsForeignKey="true" />
+      <Association Name="Tbl_Proveedor_Tbl_Proveedor_Compra" Member="Tbl_Proveedor" ThisKey="Prc_Prv_Id" OtherKey="Prv_Id" Type="Tbl_Proveedor" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tbl_Repuesto" Member="Tbl_Repuesto">
+    <Type Name="Tbl_Repuesto">
+      <Column Name="Rep_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Rep_Nombre" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Rep_Cantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Rep_Descripcion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Rep_Precio_Unitario" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Rep_Ctr_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Tbl_Repuesto_Tbl_Compra" Member="Tbl_Compra" ThisKey="Rep_Id" OtherKey="Com_Rep_Id" Type="Tbl_Compra" />
+      <Association Name="Tbl_Categoria_Repuesto_Tbl_Repuesto" Member="Tbl_Categoria_Repuesto" ThisKey="Rep_Ctr_Id" OtherKey="Ctr_Id" Type="Tbl_Categoria_Repuesto" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Tbl_Rol" Member="Tbl_Rol">
@@ -73,4 +416,203 @@
       <Association Name="Tbl_Rol_Tbl_Usuario" Member="Tbl_Usuario" ThisKey="Rol_Id" OtherKey="Usu_Rol_Id" Type="Tbl_Usuario" />
     </Type>
   </Table>
+  <Table Name="dbo.Tbl_Tipo_Acabado" Member="Tbl_Tipo_Acabado">
+    <Type Name="Tbl_Tipo_Acabado">
+      <Column Name="Tia_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Tia_Nombre" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Tia_Descripcion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Tia_Acb_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Tia_Estado" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Association Name="Tbl_Acabado_Tbl_Tipo_Acabado" Member="Tbl_Acabado" ThisKey="Tia_Acb_Id" OtherKey="Acb_Id" Type="Tbl_Acabado" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tbl_Tipo_Bodega" Member="Tbl_Tipo_Bodega">
+    <Type Name="Tbl_Tipo_Bodega">
+      <Column Name="Tib_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Tib_Nombre" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Tib_Descripcion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Tbl_Tipo_Bodega_Tbl_Bodega" Member="Tbl_Bodega" ThisKey="Tib_Id" OtherKey="Bod_Tib_Id" Type="Tbl_Bodega" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tbl_Tipo_Control_Calidad" Member="Tbl_Tipo_Control_Calidad">
+    <Type Name="Tbl_Tipo_Control_Calidad">
+      <Column Name="Tic_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Tic_Nombre" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="Tic_Descripcion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Tic_Coc_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Tic_Estado" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Association Name="Tbl_Control_Calidad_Tbl_Tipo_Control_Calidad" Member="Tbl_Control_Calidad" ThisKey="Tic_Coc_Id" OtherKey="Coc_Id" Type="Tbl_Control_Calidad" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tbl_Tipo_Desperdicio" Member="Tbl_Tipo_Desperdicio">
+    <Type Name="Tbl_Tipo_Desperdicio">
+      <Column Name="Tid_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Tid_Nombre" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Tid_Descripcion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Tid_Des_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Tid_Estado" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Association Name="Tbl_Desperdicio_Tbl_Tipo_Desperdicio" Member="Tbl_Desperdicio" ThisKey="Tid_Des_Id" OtherKey="Des_Id" Type="Tbl_Desperdicio" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tbl_Tipo_Maquina" Member="Tbl_Tipo_Maquina">
+    <Type Name="Tbl_Tipo_Maquina">
+      <Column Name="Tim_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Tim_Nombre" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="Tim_Descripcion" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Tim_Estado" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="Tim_Maq_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Tbl_Maquina_Tbl_Tipo_Maquina" Member="Tbl_Maquina" ThisKey="Tim_Maq_Id" OtherKey="Maq_Id" Type="Tbl_Maquina" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tbl_Tipo_Producto" Member="Tbl_Tipo_Producto">
+    <Type Name="Tbl_Tipo_Producto">
+      <Column Name="Tip_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Tip_Nombre" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Tip_Descripcion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Tip_Pro_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Tip_Estado" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Association Name="Tbl_Producto_Tbl_Tipo_Producto" Member="Tbl_Producto" ThisKey="Tip_Pro_Id" OtherKey="Pro_Id" Type="Tbl_Producto" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tbl_Tipo_Producto_Terminado" Member="Tbl_Tipo_Producto_Terminado">
+    <Type Name="Tbl_Tipo_Producto_Terminado">
+      <Column Name="Tpt_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Tpt_Nombre" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Tpt_Descripcion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Tpt_Estado" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Association Name="Tbl_Tipo_Producto_Terminado_Tbl_Producto_Terminado" Member="Tbl_Producto_Terminado" ThisKey="Tpt_Id" OtherKey="Prt_Tpt_Id" Type="Tbl_Producto_Terminado" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tbl_Usuario" Member="Tbl_Usuario">
+    <Type Name="Tbl_Usuario">
+      <Column Name="Usu_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Usu_Nombre" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Usu_Contrasenia" Type="System.String" DbType="VarChar(32) NOT NULL" CanBeNull="false" />
+      <Column Name="Usu_Per_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Usu_Rol_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Usu_Estado" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Association Name="Tbl_Usuario_Tbl_Auditoria" Member="Tbl_Auditoria" ThisKey="Usu_Id" OtherKey="Aud_Usu_Id" Type="Tbl_Auditoria" />
+      <Association Name="Tbl_Persona_Tbl_Usuario" Member="Tbl_Persona" ThisKey="Usu_Per_Id" OtherKey="Per_Id" Type="Tbl_Persona" IsForeignKey="true" />
+      <Association Name="Tbl_Rol_Tbl_Usuario" Member="Tbl_Rol" ThisKey="Usu_Rol_Id" OtherKey="Rol_Id" Type="Tbl_Rol" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tbl_Vehiculo" Member="Tbl_Vehiculo">
+    <Type Name="Tbl_Vehiculo">
+      <Column Name="Veh_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Veh_Marca" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Veh_Color" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Veh_Km_Inicio" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Veh_Km_Fin" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Veh_Des_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Tbl_Vehiculo_Tbl_Conductor" Member="Tbl_Conductor" ThisKey="Veh_Id" OtherKey="Con_Veh_Id" Type="Tbl_Conductor" />
+      <Association Name="Tbl_Vehiculo_Tbl_Hoja_Ruta" Member="Tbl_Hoja_Ruta" ThisKey="Veh_Id" OtherKey="Hor_Veh_Id" Type="Tbl_Hoja_Ruta" />
+      <Association Name="Tbl_Despacho_Tbl_Vehiculo" Member="Tbl_Despacho" ThisKey="Veh_Des_Id" OtherKey="Des_Id" Type="Tbl_Despacho" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tbl_Venta" Member="Tbl_Venta">
+    <Type Name="Tbl_Venta">
+      <Column Name="Ven_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Ven_Num_Venta" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Ven_Fecha_Venta" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Ven_Impuesto" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Ven_Total" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Ven_Estado" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="Ven_Cli_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Ven_Prv_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Tbl_Venta_Tbl_Despacho" Member="Tbl_Despacho" ThisKey="Ven_Id" OtherKey="Des_Ven_Id" Type="Tbl_Despacho" />
+      <Association Name="Tbl_Venta_Tbl_Detalle_Venta" Member="Tbl_Detalle_Venta" ThisKey="Ven_Id" OtherKey="Dtv_Ven_Id" Type="Tbl_Detalle_Venta" />
+      <Association Name="Tbl_Venta_Tbl_Devoluciones" Member="Tbl_Devoluciones" ThisKey="Ven_Id" OtherKey="Dev_Ven_Id" Type="Tbl_Devoluciones" />
+      <Association Name="Tbl_Venta_Tbl_Factura" Member="Tbl_Factura" ThisKey="Ven_Id" OtherKey="Fac_Ven_Id" Type="Tbl_Factura" />
+      <Association Name="Tbl_Venta_Tbl_Persona_Venta" Member="Tbl_Persona_Venta" ThisKey="Ven_Id" OtherKey="Pev_Ven_Id" Type="Tbl_Persona_Venta" />
+      <Association Name="Tbl_Cliente_Tbl_Venta" Member="Tbl_Cliente" ThisKey="Ven_Cli_Id" OtherKey="Cli_Id" Type="Tbl_Cliente" IsForeignKey="true" />
+      <Association Name="Tbl_Proveedor_Tbl_Venta" Member="Tbl_Proveedor" ThisKey="Ven_Prv_Id" OtherKey="Prv_Id" Type="Tbl_Proveedor" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tbl_Proveedor" Member="Tbl_Proveedor">
+    <Type Name="Tbl_Proveedor">
+      <Column Name="Prv_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Prv_Nombre" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Prv_Direccion" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Prv_Telefono" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Prv_Nacionalidad" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="Prv_Ruc" Type="System.String" DbType="VarChar(13)" CanBeNull="true" />
+      <Association Name="Tbl_Proveedor_Tbl_Proveedor_Compra" Member="Tbl_Proveedor_Compra" ThisKey="Prv_Id" OtherKey="Prc_Prv_Id" Type="Tbl_Proveedor_Compra" />
+      <Association Name="Tbl_Proveedor_Tbl_Venta" Member="Tbl_Venta" ThisKey="Prv_Id" OtherKey="Ven_Prv_Id" Type="Tbl_Venta" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tbl_Detalle_OrdenCompra" Member="Tbl_Detalle_OrdenCompra">
+    <Type Name="Tbl_Detalle_OrdenCompra">
+      <Column Name="OdtId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="OdtDescripcion" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="OdtUnidadMedida" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="OdtPrecio" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="OdtCantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OdtDescuento" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="OdtTotal" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="Orc_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Tbl_Orden_Compra_Tbl_Detalle_OrdenCompra" Member="Tbl_Orden_Compra" ThisKey="Orc_Id" OtherKey="Orc_Id" Type="Tbl_Orden_Compra" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tbl_Orden_Compra" Member="Tbl_Orden_Compra">
+    <Type Name="Tbl_Orden_Compra">
+      <Column Name="Orc_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Orc_Ruc" Type="System.String" DbType="VarChar(13)" CanBeNull="true" />
+      <Column Name="Orc_Tipo_Pago" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Orc_Fecha_Orc" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Orc_Telefono" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Orc_Orden" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Orc_Email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Orc_Empresa" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Orc_Per_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Orc_Estado" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="Orc_Descripcion" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="Orc_TipoCompra" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Orc_Moneda" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Orc_Categoria" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Orc_Presentacion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Orc_Ancho" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Orc_Largo" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Orc_Entrega" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Orc_EstadoPedido" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Association Name="Tbl_Orden_Compra_Tbl_Categoria_Orden_Compra" Member="Tbl_Categoria_Orden_Compra" ThisKey="Orc_Id" OtherKey="Coc_Orc_Id" Type="Tbl_Categoria_Orden_Compra" />
+      <Association Name="Tbl_Orden_Compra_Tbl_Orden_Produccion" Member="Tbl_Orden_Produccion" ThisKey="Orc_Id" OtherKey="Orp_Orc_Id" Type="Tbl_Orden_Produccion" />
+      <Association Name="Tbl_Orden_Compra_Tbl_Detalle_OrdenCompra" Member="Tbl_Detalle_OrdenCompra" ThisKey="Orc_Id" OtherKey="Orc_Id" Type="Tbl_Detalle_OrdenCompra" />
+      <Association Name="Tbl_Persona_Tbl_Orden_Compra" Member="Tbl_Persona" ThisKey="Orc_Per_Id" OtherKey="Per_Id" Type="Tbl_Persona" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.buscarId" Method="buscarId">
+    <ElementType Name="buscarIdResult">
+      <Column Name="OrcId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.insId" Method="insId">
+    <ElementType Name="insIdResult">
+      <Column Name="InsId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.maqId" Method="maqId">
+    <ElementType Name="maqIdResult">
+      <Column Name="MaqId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.palId" Method="palId">
+    <ElementType Name="palIdResult">
+      <Column Name="palId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.polId" Method="polId">
+    <ElementType Name="polIdResult">
+      <Column Name="PolId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.repId" Method="repId">
+    <ElementType Name="repIdResult">
+      <Column Name="repId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.compraId" Method="compraId">
+    <ElementType Name="compraIdResult">
+      <Column Name="compId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>
