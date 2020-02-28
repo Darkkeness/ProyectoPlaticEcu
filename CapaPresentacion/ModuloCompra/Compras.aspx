@@ -15,7 +15,7 @@
                          <asp:ListItem Text="PALETIZADA" Value="PALETIZADA"></asp:ListItem>
                      </asp:DropDownList>
     <hr />
-    <asp:GridView runat="server" ID="grvComprasIns" Visible="false" EmptyDataText="NO HAY DATOS" AutoGenerateColumns="False" RowStyle-HorizontalAlign="Center" HeaderStyle-HorizontalAlign="Center" CssClass="table table-hover table-dark">
+    <asp:GridView runat="server" ID="grvComprasIns" Visible="false" OnSelectedIndexChanged="grvComprasIns_SelectedIndexChanged" EmptyDataText="NO HAY DATOS" AutoGenerateColumns="False" RowStyle-HorizontalAlign="Center" HeaderStyle-HorizontalAlign="Center" CssClass="table table-hover table-dark">
         <Columns>
              <asp:BoundField DataField="Com_Id" HeaderText="Codigo" ></asp:BoundField>
             <asp:BoundField DataField="Tbl_Insumos.Ins_Nombre" HeaderText="Detalle" ></asp:BoundField>

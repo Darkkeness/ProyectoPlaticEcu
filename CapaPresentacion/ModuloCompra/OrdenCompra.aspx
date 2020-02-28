@@ -16,15 +16,15 @@
                     Fecha Orden:
         <asp:TextBox runat="server" ID="ordFecha" ReadOnly="true" CssClass="form-control col-10"></asp:TextBox>
                 </asp:TableCell>
-                 <asp:TableCell>
-                      Tipo Compra:
+                <asp:TableCell>
+                    Tipo Compra:
                      <asp:DropDownList runat="server" ID="ordTipoCompra" CssClass="form-control col-20">
                          <asp:ListItem Text="SELECCIONE..."></asp:ListItem>
                          <asp:ListItem Text="Nacional" Value="Nacional"></asp:ListItem>
                          <asp:ListItem Text="Internacional" Value="Internacional"></asp:ListItem>
                      </asp:DropDownList>
                 </asp:TableCell>
-                 <asp:TableCell>
+                <asp:TableCell>
                     Categoria:
                      <asp:DropDownList runat="server" ID="categoria" CssClass="form-control col-20">
                          <asp:ListItem Text="SELECCIONE..."></asp:ListItem>
@@ -66,16 +66,15 @@
         <br />
         DETALLE:
         <hr color="black" />
-        <asp:Table ID="Table2" runat="server">
-            <asp:TableRow >
+        <asp:Table ID="Table2" runat="server" CellPadding="20">
+            <asp:TableRow>
                 <asp:TableCell>
                     Articulo:
-                    <asp:TextBox ID="ordProducto" runat="server" CssClass="border border-aero"></asp:TextBox><br />
-                    
+                    <asp:TextBox ID="ordProducto" runat="server" CssClass="form-control form-control-sm"></asp:TextBox>
                 </asp:TableCell>
                 <asp:TableCell>
                     Unidad Medida:
-                    <asp:DropDownList ID="ordUnidad" runat="server" CssClass="border border-aero">
+                    <asp:DropDownList ID="ordUnidad" runat="server" CssClass="form-control form-control-sm">
                         <asp:ListItem Text="Kilogramo" Value="Kilogramo"></asp:ListItem>
                         <asp:ListItem Text="Hectogramo" Value="Hectogramo"></asp:ListItem>
                         <asp:ListItem Text="Decagramo" Value="Decagramo"></asp:ListItem>
@@ -83,42 +82,39 @@
                         <asp:ListItem Text="Decigramo" Value="Decigramo"></asp:ListItem>
                         <asp:ListItem Text="Centigramo" Value="Centigramo"></asp:ListItem>
                         <asp:ListItem Text="Miligramo" Value="Miligramo"></asp:ListItem>
-                    </asp:DropDownList> <br />
-                   
+                    </asp:DropDownList>
                 </asp:TableCell>
                 <asp:TableCell>
                     Precio:
-                    <asp:TextBox runat="server" ID="ordPrecio"  TextMode="Number" CssClass="border border-aero col-4"></asp:TextBox><br />
-                    
-                </asp:TableCell>
-                  <asp:TableCell>
-                     Cantidad:
-                    <asp:TextBox runat="server" ID="ordCantidad"  TextMode="Number"  CssClass="border border-aero col-4"></asp:TextBox><br />
-                      
+                    <asp:TextBox runat="server" ID="ordPrecio" TextMode="Number"  CssClass="form-control form-control-sm"></asp:TextBox>
                 </asp:TableCell>
                 <asp:TableCell>
-                    <div style="margin-right:100px">
-                     <asp:LinkButton runat="server" ID="btnAgragra" CssClass="btn btn-success" OnClick="btnAgragra_Click"><i class="fa fa-plus"></i></asp:LinkButton>
-                        </div>
+                    Cantidad:
+                    <asp:TextBox runat="server" ID="ordCantidad" TextMode="Number" CssClass="form-control form-control-sm"></asp:TextBox>
+                </asp:TableCell>
+                <asp:TableCell>
+                    <div style="margin-top: 15px">
+                        <asp:LinkButton runat="server" ID="btnAgragra" CssClass="btn btn-success" OnClick="btnAgragra_Click"><i class="fa fa-plus"></i></asp:LinkButton>
+                    </div>
                 </asp:TableCell>
             </asp:TableRow>
         </asp:Table>
-    <hr color="black" />
+        <hr color="black" />
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <asp:UpdatePanel runat="server">
             <ContentTemplate>
-                <div style="overflow-y: scroll;height: 150px;">
-        <asp:GridView runat="server" ID="grvDtalle" CssClass="table table-active table-bordered table-dark" AutoGenerateColumns="False" >
-           <Columns>
-               <asp:BoundField DataField="OdtDescripcion" HeaderText="Descripcion" />
-               <asp:BoundField DataField="OdtCantidad" HeaderText="Cantidad" />
-               <asp:BoundField DataField="OdtPrecio" HeaderText="Precio" />
-               <asp:BoundField DataField="OdtTotal" HeaderText="Total" />
-           </Columns>
-       </asp:GridView>
-                    </div>
-                </ContentTemplate>
-      </asp:UpdatePanel>
-        <asp:Button ID="btnAgregar" runat="server" OnClick="btnAgregar_Click" CssClass="btn btn-success" Text="GUARDAR"/>
+                <div style="overflow-y: scroll; height: 150px;">
+                    <asp:GridView runat="server" ID="grvDtalle" CssClass="table table-active table-bordered table-dark" AutoGenerateColumns="False">
+                        <Columns>
+                            <asp:BoundField DataField="OdtDescripcion" HeaderText="Descripcion" />
+                            <asp:BoundField DataField="OdtCantidad" HeaderText="Cantidad" />
+                            <asp:BoundField DataField="OdtPrecio" HeaderText="Precio" />
+                            <asp:BoundField DataField="OdtTotal" HeaderText="Total" />
+                        </Columns>
+                    </asp:GridView>
+                </div>
+            </ContentTemplate>
+        </asp:UpdatePanel>
+        <asp:Button ID="btnAgregar" runat="server" OnClick="btnAgregar_Click" CssClass="btn btn-success" Text="GUARDAR" />
     </asp:Panel>
 </asp:Content>

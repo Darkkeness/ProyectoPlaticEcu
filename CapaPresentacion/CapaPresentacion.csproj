@@ -46,6 +46,21 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1400.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1400.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebDesign, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1400.0\lib\net40\Microsoft.ReportViewer.WebDesign.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1400.0\lib\net40\Microsoft.ReportViewer.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -86,6 +101,7 @@
     <Content Include="css\maps\jquery-jvectormap-2.0.3.css" />
     <Content Include="images\american-express.png" />
     <Content Include="images\cropper.jpg" />
+    <Content Include="images\fondo.jpg" />
     <Content Include="images\icono.ico" />
     <Content Include="images\img.png" />
     <Content Include="images\inbox.png" />
@@ -104,6 +120,7 @@
     <Content Include="js\moment\moment.min.js" />
     <Content Include="Login.aspx" />
     <Content Include="MANTENIMIETOS\ListaCliente.aspx" />
+    <Content Include="MANTENIMIETOS\ListaProveedor.aspx" />
     <Content Include="MANTENIMIETOS\ListaUsuario.aspx" />
     <Content Include="Menu.aspx" />
     <Content Include="ModuloCompra\Compras.aspx" />
@@ -111,6 +128,20 @@
     <Content Include="ModuloCompra\OrdenCompra.aspx" />
     <Content Include="ModuloCompra\ProcesarOrden.aspx" />
     <Content Include="recuperarContraseña.aspx" />
+    <Content Include="Reporte\FacturaProveedor.aspx" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="src\js\custom.js" />
     <Content Include="src\js\helpers\smartresize.js" />
     <Content Include="vendors\animate.css\animate.css" />
@@ -3831,6 +3862,13 @@
     <Compile Include="MANTENIMIETOS\ListaCliente.aspx.designer.cs">
       <DependentUpon>ListaCliente.aspx</DependentUpon>
     </Compile>
+    <Compile Include="MANTENIMIETOS\ListaProveedor.aspx.cs">
+      <DependentUpon>ListaProveedor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MANTENIMIETOS\ListaProveedor.aspx.designer.cs">
+      <DependentUpon>ListaProveedor.aspx</DependentUpon>
+    </Compile>
     <Compile Include="MANTENIMIETOS\ListaUsuario.aspx.cs">
       <DependentUpon>ListaUsuario.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -3881,6 +3919,19 @@
     <Compile Include="recuperarContraseña.aspx.designer.cs">
       <DependentUpon>recuperarContraseña.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Reporte\consultaSql.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>consultaSql.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\FacturaProveedor.aspx.cs">
+      <DependentUpon>FacturaProveedor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reporte\FacturaProveedor.aspx.designer.cs">
+      <DependentUpon>FacturaProveedor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="template.Master.cs">
       <DependentUpon>template.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -4922,6 +4973,17 @@
     <Content Include="vendors\validator\.bower.json" />
     <Content Include="vendors\validator\README.md" />
     <Content Include="vendors\validator\validator.jquery.json" />
+    <Content Include="Reporte\consultaSql.xsc">
+      <DependentUpon>consultaSql.xsd</DependentUpon>
+    </Content>
+    <None Include="Reporte\consultaSql.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>consultaSql.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Reporte\consultaSql.xss">
+      <DependentUpon>consultaSql.xsd</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -4948,6 +5010,9 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Reporte\facturaProveedor.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

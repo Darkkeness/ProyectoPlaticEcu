@@ -15,6 +15,23 @@ namespace CapaDatos
             var lista = comand.Tbl_Orden_Compra.Where(li => li.Orc_Estado.Equals('P'));
             return lista.ToList();
         }
+        public void registrarProveedor(Tbl_Proveedor proveedor)
+        {
+            comand.Tbl_Proveedor.InsertOnSubmit(proveedor);
+            comand.SubmitChanges();
+        }
+        public void editarProveedor(Tbl_Proveedor proveedor)
+        {
+            comand.SubmitChanges();
+        }
+        public List<Tbl_Proveedor> listaProveedores()
+        {
+            return comand.Tbl_Proveedor.ToList();
+        }
+        public Tbl_Proveedor obtenerProveedor(int prvId)
+        {
+            return comand.Tbl_Proveedor.First(prv=>prv.Prv_Id == prvId);
+        }
         public List<Tbl_Compra> listacompraIns()
         {
             var lista = comand.Tbl_Compra.Where(li => li.Com_Ins_Id != null);

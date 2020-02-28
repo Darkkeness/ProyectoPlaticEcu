@@ -24,17 +24,16 @@
     <link href="../build/css/custom.min.css" rel="stylesheet">
   </head>
 
-  <body class="login">
+  <body class="login" style="background-image: url(/images/fondo.jpg)" >
       <form runat="server">
     <div>
       <a class="hiddenanchor" id="signup"></a>
-      <a class="hiddenanchor" id="signin"></a>
 
       <div class="login_wrapper">
         <div class="animate form login_form">
           <section class="login_content">
             <form>
-              <h1>Login Form</h1>
+              <h1 style="color:white;font-weight:bold;font-size:30px">MODULO COMPRAS</h1>
               <div>
                   <asp:Label id="intentos" runat="server" CssClass="text-capitalize text-danger" ></asp:Label>
                 <asp:TextBox runat="server"  type="text" ID="txtUser" class="form-control" placeholder="Username" required="Requiere Usuario" />
@@ -45,16 +44,16 @@
               </div>
               <div>
                   <hr />
-                  <asp:LinkButton ID="ingresar" runat="server" CssClass="btn btn-small btn-success"  OnClick="Unnamed3_Click" ><i class="fa fa-hand-grab-o"></i>&nbsp;INGRESAR</asp:LinkButton>
+                  <asp:Button  runat="server" CssClass="btn btn-success"  OnClick="Unnamed3_Click" Text="INGRESAR"></asp:Button>
                 
               </div>
 
               <div class="clearfix"></div>
 
               <div class="separator">
-                  <a href="recuperarContraseña.aspx" class="to_register"> Olvido su contraseña? </a>
+                  <a  style="color:white" href="recuperarContraseña.aspx" class="to_register"> Olvido su contraseña? </a>
                   <br />
-                  <a href="crearUsuarioNuevo.aspx" class="title"> CREAR CUENTA </a>
+                  <a  style="color:white" href="crearUsuarioNuevo.aspx" class="title"> CREAR CUENTA </a>
                 
 
                 <div class="clearfix"></div>

@@ -72,5 +72,12 @@ namespace CapaPresentacion.ModuloCompra
                 grvPaletizado.DataBind();
             }
         }
+
+        protected void grvComprasIns_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GridViewRow row = grvComprasIns.SelectedRow;
+            string id = row.Cells[0].Text;
+            Response.Redirect("/Reporte/FacturaProveedor.aspx?id="+ id);
+        }
     }
 }
